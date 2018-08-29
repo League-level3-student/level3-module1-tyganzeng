@@ -3,14 +3,18 @@ package _01_IntroToArrayLists;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 
 //Copyright The League of Amazing Programmers, 2015
 
 public class _06_IPodShuffle{
 	public _06_IPodShuffle() {
 		// 1. Use the Song class the play the demo.mp3 file.
+		Song s = new Song("demo.mp3");
+		s.play();
 				
-				
+		
 		/**
 		 * 2. Congratulations on completing the sound check! * Now we want to make an
 		 * iPod Shuffle that plays random music. * Create an ArrayList of Songs and a

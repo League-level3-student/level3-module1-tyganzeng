@@ -36,6 +36,13 @@ public class _04_RemovingStuffFromArrayLists {
 
 		/* TODO 1: Clean out the dirt but keep the delicious worms. */
 		
+		ArrayList<Stuff> cleaned = new ArrayList<Stuff>();
+		for(Stuff s : stuffIFoundInTheYard) {
+			if(s.type == "worm") {
+				cleaned.add(s);
+			}
+		}
+		stuffIFoundInTheYard = cleaned;
 		
 		
 		
@@ -75,6 +82,16 @@ public class _04_RemovingStuffFromArrayLists {
 		truth.add('#');
 		/* TODO 2: Remove the hash symbols and print out the truth. */
 
+		ArrayList<Character> cleaned2 = new ArrayList<Character>();
+		for(Character c : truth) {
+			if(!c.equals('#')) {
+				cleaned2.add(c);
+			} 
+		}
+		truth = cleaned2;
+		for(Character c : truth) {
+			System.out.println(c);
+		}
 		
 		
 	}
