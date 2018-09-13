@@ -1,8 +1,6 @@
 package _04_HangMan;
 
 import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.Stack;
 
 import javax.swing.JFrame;
@@ -22,12 +20,12 @@ public class HangMan {
 	public final static int width = 650;
 	public final static int height = 900;
 	Stack<String> words;
-	
+
 	public static void main(String[] args) {
 		new HangMan().setup();
-		
+
 	}
-	
+
 	public void setup() {
 		window = new JFrame();
 		panel = new JPanel();
@@ -46,9 +44,9 @@ public class HangMan {
 		livesLabel.setText("Lives: " + lives);
 		gameOver = false;
 		int num = Integer.parseInt(JOptionPane.showInputDialog("Enter a number between 1 and # of words"));
-		for(int i = 0; i < num; i++) {
+		for (int i = 0; i < num; i++) {
 			String str = Utilities.readRandomLineFromFile("./src/_04_HangMan/dictionary.txt");
-			while(words.contains(str)) {
+			while (words.contains(str)) {
 				str = Utilities.readRandomLineFromFile("./src/_04_HangMan/dictionary.txt");
 			}
 			words.push(str);
@@ -75,20 +73,26 @@ public class HangMan {
 					if (lives == 0) {
 						System.out.println("Game Over, word was " + word);
 						gameOver = true;
+						String yes = JOptionPane.showInputDialog("Would you like to continue? Type yes to continue");
+						if (yes.equals("yes")) {
+							gameOver = false;
+							lives = 5;
+							hidden = word;
+						}
 					}
 				}
 				label.setText(hidden);
-			} 
-			if(hidden.equals(word)) {
+			}
+			if (hidden.equals(word)) {
 				System.out.println("Correct!");
 				hidden = "";
 			} else {
-				//JOptionPane.showOptionDialog(parentComponent, message, title, optionType, messageType, icon, options, initialValue)
+				// JOptionPane.showOptionDialog(parentComponent, message, title, optionType,
+				// messageType, icon, options, initialValue)
 			}
 		}
-		System.out.println("Congratulations!");
-		
+		System.out.println("Congratulations! You win!");
+
 	}
 
-	
 }
